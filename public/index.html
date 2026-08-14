@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tropa do Elias</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.svg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-img"><span class="mao-ico mao-sm"></span></div>
+    <div class="nav-logo-txt">
+      Elias Jabbour 
+      <div class="nav-logo-sub"></div>
+        Candidato a Deputado Federal
+    </div>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-links" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn ativo" onclick="ir('home')">🏠 Início</button>
+    <button class="nav-btn" onclick="ir('painel')">⭐ Painel</button>
+    <button class="nav-btn" onclick="ir('apoiar')">💗 Apoiar</button>
+    <button class="nav-btn nav-cta" id="btn-nav-auth" onclick="ir('cadastro')"><span class="mao-ico mao-sm"></span> Vem com a Tropa!!</button>
+  </div>
+</nav>
+
+<!-- TOOLTIP DO MAPA -->
+<div class="mapa-tooltip" id="mapa-tooltip"></div>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div id="pg-home" class="pg ativa">
+  <div class="home-saudacao">
+    <div style="max-width:680px;margin:0 auto;position:relative;z-index:1">
+      <div class="saud-tag"><span class="mao-ico mao-sm"></span> Tropa do Elias</div>
+      <div class="saud-msg" id="saud-msg">Bom dia! 🌅</div>
+      <div class="saud-slogan"><span class="mao-ico mao-sm"></span> Seja voluntário e ajude a construir o futuro do Brasil</div>
+    </div>
+  </div>
+
+  <div class="home-section">
+
+    <!-- Vídeo -->
+    <div class="section-eyebrow">📹 Mensagem do Elias</div>
+    <div class="section-title">Ele tem algo especial pra te dizer</div>
+    <div class="section-sub">Ouça direto do Elias por que esse movimento importa — e por que você faz parte dele. 💗</div>
+
+    <div class="video-card" id="video-card">
+      <div class="video-thumb" onclick="simularVideo()">
+        <div class="play-wrap">
+          <div class="play-circle"></div>
+          <div class="video-title">Elias Jabbour</div>
+          <div class="video-sub">Movimento "Tropa do Elias" · Candidato a Deputado Federal pelo RJ</div>
+        </div>
+        <div class="video-badge">▶ Mensagem do Elias · 2min</div>
+      </div>
+    </div>
+
+    <!-- Compartilhar -->
+    <div class="share-card">
+      <div class="share-title">📤 Compartilhe com quem você ama! <span class="mao-ico mao-sm"></span></div>
+      <div class="share-btns">
+        <button class="share-btn sh-wpp" onclick="shareWhatsApp()">💬 WhatsApp</button>
+        <button class="share-btn sh-ig" onclick="shareInstagram()">📸 Instagram</button>
+        <button class="share-btn sh-tg" onclick="shareTelegram()">✈️ Telegram</button>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">🏆 Ranking do Movimento</div>
+    <div class="section-title">Quem mais pontuou</div>
+    <div class="section-sub">Acompanhe a pontuação por dia, semana, mês ou no geral.</div>
+
+    <div class="ranking-card" id="ranking-card">
+      <div class="ranking-tabs" id="ranking-tabs">
+        <button class="ranking-tab ativo" type="button" onclick="trocarRankingPeriodo('dia', this)">Dia</button>
+        <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('semana', this)">Semana</button>
+        <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('mes', this)">Mês</button>
+        <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('geral', this)">Geral</button>
+      </div>
+      <div class="ranking-lista" id="ranking-lista">
+        <div class="ranking-loading">Carregando ranking...</div>
+      </div>
+    </div>
+
+    <!-- Agenda -->
+    <div class="section-eyebrow">🗓️ Agenda do Elias</div>
+    <div class="section-title">Próxima semana</div>
+    <div class="section-sub">Venha de perto! Cada encontro fortalece o movimento. 💗</div>
+
+    <div class="agenda-card">
+      <div class="agenda-hdr">🗓️ <span>Agenda — próxima semana</span></div>
+      <div class="agenda-lista" id="agenda-lista">
+        <div style="padding:1rem;text-align:center;color:var(--txt3);font-size:13px">Carregando agenda...</div>
+      </div>
+    </div>
+    <button class="btn-agenda" onclick="abrirModal('modal-agenda')">📅 Criar agenda com o Elias</button>
+
+    <!-- Voluntário -->
+    <div class="section-eyebrow"><span class="mao-ico mao-sm"></span> Vem com a Tropa!!</div>
+    <div class="section-title">Seja voluntária(o) do movimento</div>
+    <div class="section-sub">Qualquer pessoa pode fazer parte. O movimento é de todo mundo. 💗</div>
+    <div class="vol-card">
+      <div class="vol-titulo">🌟 Como funciona ser voluntária(o)?</div>
+      <div class="vol-desc">Simples e rápido.</div>
+      <div class="vol-passos">
+        <div class="vol-passo"><div class="vp-num">1</div>📝 Preencha o formulário em 2 minutinhos</div>
+        <div class="vol-passo"><div class="vp-num">2</div>💬 Entre no grupo WhatsApp do seu polo</div>
+        <div class="vol-passo"><div class="vp-num">3</div>🚀 Participe das ações e acumule emblemas</div>
+      </div>
+      <button class="btn-vol" onclick="ir('cadastro')"><span class="mao-ico mao-sm"></span> Vem com a Tropa!! Quero ser voluntária(o)</button>
+    </div>
+
+    <!-- Chamado para contribuição -->
+    <div class="apoio-cta-card">
+      <div class="apoio-cta-icon">💗</div>
+      <div class="apoio-cta-titulo">Contribua com o movimento popular</div>
+      <div class="apoio-cta-texto">
+        Movimentos populares não têm o dinheiro das grandes empresas nem o tempo de TV das campanhas tradicionais.
+        A candidatura do Elias Jabbour respira do que cada apoiadora e apoiador coloca — com transparência total e dentro das regras da Justiça Eleitoral.
+        Cada contribuição, do tamanho que for, ajuda a superar essas adversidades e fortalece quem está construindo isso de baixo para cima. 🫶
+      </div>
+      <button class="btn-apoio-cta" onclick="ir('apoiar')">💗 Quero contribuir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CADASTRO ═══════════ -->
+<div id="pg-cadastro" class="pg">
+  <div class="form-wrap">
+    <div class="form-topo">
+      <div class="ft-emoji"><span class="mao-ico mao-lg"></span></div>
+      <h2>Vem com a Tropa!! Seja voluntária(o)</h2>
+      <p>Preencha em 2 minutos e entre no movimento do Elias Jabbour 💗</p>
+    </div>
+    <div class="form-steps">
+      <div class="fstep ok" id="fs1"></div>
+    </div>
+
+    <!-- Bloco 1 -->
+    <div class="form-bloco ativo" id="bloco-1">
+      <div class="form-row"><label>👤 Nome completo *</label><input type="text" id="f-nome" placeholder="Como você se chama?"></div>
+      <div class="form-row"><label>📱 WhatsApp (com DDD) *</label><input type="tel" id="f-tel" placeholder="(21) 98765-4321" inputmode="numeric"></div>
+      <div class="form-row"><label>📧 Email *</label><input type="email" id="f-email" placeholder="voce@email.com"></div>
+      <div class="form-row">
+        <label>🏙️ Cidade *</label>
+        <select id="f-cidade" onchange="onCidadeChange()">
+          <option value="">Selecione sua cidade</option>
+          <option value="recife">Recife</option>
+          <option value="paulista">Paulista</option>
+          <option value="olinda">Olinda</option>
+          <option value="caruaru">Caruaru</option>
+          <option value="petrolina">Petrolina</option>
+          <option value="garanhuns">Garanhuns</option>
+          <option value="campina-grande">Campina Grande</option>
+          <option value="vitoria-sto-antao">Vitória de Santo Antão</option>
+          <option value="santa-cruz-capibaribe">Santa Cruz do Capibaribe</option>
+          <option value="cabo-sto-agostinho">Cabo de Santo Agostinho</option>
+          <option value="igarassu">Igarassu</option>
+          <option value="abreu-lima">Abreu e Lima</option>
+          <option value="ipojuca">Ipojuca</option>
+          <option value="sertania">Sertânia</option>
+          <option value="belo-jardim">Belo Jardim</option>
+          <option value="araripina">Araripina</option>
+          <option value="ouricuri">Ouricuri</option>
+          <option value="salgueiro">Salgueiro</option>
+          <option value="arcoverde">Arcoverde</option>
+          <option value="Serra Talhada">Serra Talhada</option>
+          <option value="floresta">Floresta</option>
+          <option value="bezerros">Bezerros</option>
+          <option value="palmares">Palmares</option>
+          <option value="goiana">Goiana</option>
+          <option value="pesqueira">Pesqueira</option>
+          <option value="limoeiro">Limoeiro</option>
+          <option value="carpina">Carpina</option>
+          <option value="surubim">Surubim</option>
+          <option value="timbauba">Timbaúba</option>
+          <option value="nazare-mata">Nazaré da Mata</option>
+          <option value="escada">Escada</option>
+          <option value="ribeirao">Ribeirão</option>
+          <option value="outra">Outra cidade de PE</option>
+        </select>
+      </div>
+      <div class="bairro-wrap vis" id="f-bairro-wrap">
+        <div class="form-row">
+          <label>🏘️ Bairro *</label>
+          <input type="text" id="f-bairro" placeholder="Digite seu bairro">
+          <div class="form-hint">Esse campo agora é obrigatório para finalizar seu cadastro.</div>
+        </div>
+      </div>
+      <div class="form-row"><label>🔐 Senha *</label><input type="password" id="f-senha" placeholder="Mínimo 8 caracteres"></div>
+      <div class="form-hint" id="convite-origem-msg" style="display:none"></div>
+      <div class="form-nav"><div></div><button class="btn-next" onclick="concluir()"><span class="mao-ico mao-sm"></span> Entrar no movimento!</button></div>
+    </div>
+
+    <!-- Sucesso -->
+    <div class="form-bloco" id="bloco-ok">
+      <div class="suc-box">
+        <div class="suc-emoji">🎉</div>
+        <h2>Bem-vinda(o) ao movimento!</h2>
+        <p>Seu cadastro foi recebido. Agora confirme seu e-mail pelo link enviado para liberar sua conta e acessar o painel.</p>
+        <div class="card-preview">
+          <div class="cp-tag">Tropa do Elias · Cadastro recebido</div>
+          <div class="cp-nome" id="cp-nome">Maria das Graças</div>
+          <div class="cp-reg" id="cp-reg">📍 Paulista — Janga</div>
+          <div class="cp-footer"><div class="cp-nivel">📧 Confirmação pendente</div><div style="text-align:right"><div class="cp-num">0</div><div class="cp-lbl">pontos</div></div></div>
+        </div>
+        <button class="btn-next" onclick="ir('home')" style="width:100%;padding:14px">Voltar ao início</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PAINEL ═══════════ -->
+<div id="pg-painel" class="pg">
+  <div class="painel-wrap">
+    <div class="painel-hero">
+      <div class="p-av" id="painel-av">MG</div>
+      <div><div class="p-nome" id="painel-nome">Maria das Graças Silva</div><div class="p-polo" id="painel-polo">📍 Polo Paulista · Janga · Desde jun/2026</div></div>
+      <div class="p-nivel" id="painel-categoria">⚡ Militante</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-c"><div class="sn" id="painel-stat-acoes">0</div><div class="sl">Ações</div></div>
+      <div class="stat-c"><div class="sn" id="painel-stat-recrutadas">0</div><div class="sl">Apoiadores</div></div>
+      <div class="stat-c"><div class="sn" id="painel-stat-portas">0</div><div class="sl">Mobilizadores</div></div>
+    </div>
+
+    <div class="card-sec">
+      <div class="cst">🏅 Minha jornada de emblemas</div>
+      <div class="selos-grid" id="painel-selos-grid"></div>
+      <div class="prog-wrap" style="margin-top:10px"><div class="prog-fill" id="painel-selos-fill" style="width:0%"></div></div>
+      <div class="prog-lbls"><span id="painel-selos-label">0 de 0 emblemas</span><span id="painel-selos-next">Carregando...</span></div>
+    </div>
+
+    <!-- Apoiadores -->
+    <div class="eleit-sect">
+      <div class="eleit-hdr"><h3>🗳️ Meus apoiadores conquistados</h3><button class="btn-add-el" onclick="abrirModal('modal-eleitor')">+ Adicionar</button></div>
+      <div class="eleit-info-box">💡 Cadastre apoiadores com e-mail. Eles só contam após confirmar pelo link enviado.</div>
+      <div class="eleit-lista" id="eleit-lista">
+        <div class="el-item"><div class="el-av">CF</div><div class="el-info"><div class="el-nome">Carlos Ferreira</div><div class="el-meta">52 anos · Masculino · Paulista — Janga</div></div><div class="el-badge">✓ Confirmado</div></div>
+        <div class="el-item"><div class="el-av">RS</div><div class="el-info"><div class="el-nome">Regina da Silva</div><div class="el-meta">38 anos · Feminino · Paulista — Maria Farinha</div></div><div class="el-badge">✓ Confirmado</div></div>
+      </div>
+      <div class="el-total" id="el-total"><strong>0 apoiadores</strong> confirmados</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ APOIAR ═══════════ -->
+<div id="pg-apoiar" class="pg">
+  <div class="apoiar-wrap">
+
+    <div class="apoiar-hero">
+      <div class="apoiar-hero-icon"><span class="mao-ico mao-lg"></span></div>
+      <div class="apoiar-hero-tit">Apoia em dinheiro</div>
+      <div class="apoiar-hero-sub">Sem grande mídia, sem dinheiro de empresa — a pré-campanha respira do que cada uma e cada um de nós coloca.</div>
+    </div>
+
+    <div class="apoiar-secao-label">💰 Escolhe um valor</div>
+    <div class="valores-grid">
+      <button class="valor-btn" onclick="abrirApoio(5)">R$ 5</button>
+      <button class="valor-btn" onclick="abrirApoio(10)">R$ 10</button>
+      <button class="valor-btn" onclick="abrirApoio(50)">R$ 50</button>
+      <button class="valor-btn" onclick="abrirApoio(100)">R$ 100</button>
+      <button class="valor-btn" onclick="abrirApoio(200)">R$ 200</button>
+      <button class="valor-btn" onclick="abrirApoio(500)">R$ 500</button>
+      <button class="valor-btn" onclick="abrirApoio(1000)">R$ 1.000</button>
+      <button class="valor-btn" onclick="abrirApoio(5000)">R$ 5.000</button>
+      <button class="valor-btn valor-outro" onclick="abrirApoio(0)"><span class="vo-mais">+</span><span class="vo-label">Outro valor</span></button>
+    </div>
+
+    <div class="apoiar-transparencia">
+      <div class="at-titulo">🔒 100% via "Quero Apoiar"</div>
+      <div class="at-texto">A gente nunca toca no teu dinheiro — você paga direto na ferramenta oficial (Pix, cartão ou boleto). Recibo e nota fiscal lá mesmo. A gente só recebe a confirmação do apoio.</div>
+    </div>
+
+    <div class="apoiar-legal">
+      ⚖️ Plataforma de financiamento coletivo cadastrada e aprovada pelo Tribunal Superior Eleitoral (TSE), conforme exige a legislação eleitoral brasileira. Apenas pessoas físicas podem contribuir — são proibidas doações de empresas ou de origem estrangeira. Os valores arrecadados na pré-campanha só são liberados após o registro oficial da candidatura. Esta é uma ferramenta de apoio ao movimento, e em nenhum momento constitui ou substitui pedido de voto.
+    </div>
+
+    <button class="btn-quero-apoiar" onclick="window.open('https://queroapoiar.com.br/elias-jabbour', '_blank')">
+      <span class="mao-ico mao-sm"></span> Quero apoiar
+    </button>
+
+    <button class="btn-compartilhar-apoio" onclick="compartilharMovimento()">
+      📲 Compartilhe com um(a) amigo(a)
+    </button>
+
+  </div>
+</div>
+
+<!-- Modal: confirmar valor de apoio -->
+<div class="modal-ov" id="modal-apoio">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h3>💗 Você escolheu <span id="ap-valor-txt">R$ 50</span></h3>
+    <div class="modal-sub">Você será direcionado para a plataforma oficial "Quero Apoiar" para concluir sua contribuição com segurança via Pix, cartão ou boleto.</div>
+    <div class="apoiar-legal" style="margin-bottom:1rem">⚖️ Pagamento processado 100% pela plataforma "Quero Apoiar", cadastrada no TSE. Apenas pessoas físicas podem contribuir.</div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="fecharModal('modal-apoio')">Cancelar</button>
+      <button class="btn-ok" onclick="irParaQueroApoiar()">💗 Continuar no Quero Apoiar</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════ MODAIS ═══════════ -->
+<div class="modal-ov" id="modal-agenda">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h3>📅 Criar agenda com o Elias</h3>
+    <div class="modal-sub">Preencha e a equipe vai entrar em contato para confirmar!</div>
+    <div class="form-row"><label>👤 Seu nome *</label><input id="ag-nome" type="text" placeholder="Como você se chama?"></div>
+    <div class="form-row"><label>📱 WhatsApp *</label><input id="ag-tel" type="tel" placeholder="(21) 9 0000-0000"></div>
+    <div class="form-row"><label>🏙️ Cidade *</label><select id="ag-cidade"><option value="">Selecione sua cidade</option></select></div>
+    <div class="form-row"><label>📍 Local do encontro *</label><input id="ag-local" type="text" placeholder="Endereço ou nome do espaço"></div>
+    <div class="form-row"><label>🗓️ Data preferida *</label><input id="ag-data" type="date"></div>
+    <div class="form-row"><label>🕐 Hora de início *</label><input id="ag-hora-inicio" type="time"></div>
+    <div class="form-row"><label>🕕 Hora final *</label><input id="ag-hora-fim" type="time"></div>
+    <div class="form-row"><label>👥 Público esperado</label><select id="ag-publico"><option>Até 10 pessoas</option><option>10 a 30 pessoas</option><option>30 a 100 pessoas</option><option>Mais de 100 pessoas</option></select></div>
+    <div class="form-row"><label>💬 Conte mais sobre o encontro</label><textarea id="ag-desc" placeholder="Que tipo de evento?"></textarea></div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="fecharModal('modal-agenda')">Cancelar</button>
+      <button class="btn-ok" onclick="submitAgendaForm()">📅 Solicitar agenda</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-ov" id="modal-eleitor">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h3>🗳️ Adicionar apoiador conquistado</h3>
+    <div class="modal-sub">Registre alguém cujo apoio você já garantiu para o movimento! 💗</div>
+    <div class="form-row"><label>👤 Nome completo *</label><input type="text" id="el-nome" placeholder="Nome da pessoa"></div>
+    <div class="form-row"><label>📱 Telefone *</label><input type="tel" id="el-tel" placeholder="(21) 9 0000-0000"></div>
+    <div class="form-row"><label>📧 E-mail *</label><input type="email" id="el-email" placeholder="apoio@email.com"></div>
+    <div class="form-row"><label>🏙️ Cidade *</label>
+      <select id="el-cidade" onchange="mostrarBairroModal('el-cidade','el-bairro-wrap')">
+        <option value="">Selecione</option>
+        <option value="recife">Recife</option>
+        <option value="paulista">Paulista</option>
+        <option value="olinda">Olinda</option>
+        <option value="caruaru">Caruaru</option>
+        <option value="petrolina">Petrolina</option>
+        <option value="garanhuns">Garanhuns</option>
+        <option value="campina-grande">Campina Grande</option>
+        <option value="vitoria-sto-antao">Vitória de Santo Antão</option>
+        <option value="santa-cruz-capibaribe">Santa Cruz do Capibaribe</option>
+        <option value="cabo-sto-agostinho">Cabo de Santo Agostinho</option>
+        <option value="igarassu">Igarassu</option>
+        <option value="abreu-lima">Abreu e Lima</option>
+        <option value="ipojuca">Ipojuca</option>
+        <option value="sertania">Sertânia</option>
+        <option value="belo-jardim">Belo Jardim</option>
+        <option value="araripina">Araripina</option>
+        <option value="ouricuri">Ouricuri</option>
+        <option value="salgueiro">Salgueiro</option>
+        <option value="arcoverde">Arcoverde</option>
+        <option value="Serra Talhada">Serra Talhada</option>
+        <option value="floresta">Floresta</option>
+        <option value="bezerros">Bezerros</option>
+        <option value="palmares">Palmares</option>
+        <option value="goiana">Goiana</option>
+        <option value="pesqueira">Pesqueira</option>
+        <option value="limoeiro">Limoeiro</option>
+        <option value="carpina">Carpina</option>
+        <option value="surubim">Surubim</option>
+        <option value="timbauba">Timbaúba</option>
+        <option value="nazare-mata">Nazaré da Mata</option>
+        <option value="escada">Escada</option>
+        <option value="ribeirao">Ribeirão</option>
+        <option value="outra">Outra cidade de PE</option>
+      </select>
+    </div>
+    <div class="bairro-wrap" id="el-bairro-wrap"><div class="form-row"><label>🏘️ Bairro *</label><select id="el-bairro"><option value="">Selecione o bairro</option></select></div></div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="fecharModal('modal-eleitor')">Cancelar</button>
+      <button class="btn-ok" onclick="salvarEleitor()">🗳️ Adicionar apoiador</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-ov" id="modal-auth">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h3 id="auth-modal-title">⭐ Entrar no painel</h3>
+    <div class="modal-sub" id="auth-modal-sub">Informe seu email e sua senha para entrar no painel.</div>
+    <div class="form-row" id="auth-email-row">
+      <label>📧 Email *</label>
+      <input type="email" id="auth-email" placeholder="voce@email.com">
+    </div>
+    <div class="form-row" id="auth-password-row">
+      <label>🔐 Senha *</label>
+      <input type="password" id="auth-password" placeholder="Sua senha">
+      <div class="form-hint"><button type="button" id="auth-forgot-btn" onclick="solicitarResetSenha()" style="background:none;border:none;color: var(--cor-principal);padding:0;cursor:pointer;font-weight:700">Esqueceu a senha?</button></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="fecharModalAuth()">Cancelar</button>
+      <button class="btn-ok" id="auth-submit-btn" onclick="submitAuthModal()">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-ov" id="modal-reset-password">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h3>🔐 Redefinir senha</h3>
+    <div class="modal-sub">Digite sua nova senha para concluir a redefinição.</div>
+    <div class="form-row">
+      <label>Nova senha *</label>
+      <input type="password" id="reset-password-input" placeholder="Mínimo 8 caracteres">
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="fecharModal('modal-reset-password')">Cancelar</button>
+      <button class="btn-ok" onclick="confirmarResetSenha()">Salvar nova senha</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-legal">
+  <div class="footer-legal-content">
+    ⚖️ Este é um sistema de organização do <strong>movimento "Tropa do Elias"</strong>, mantido por voluntárias e voluntários.
+    Os itens de reconhecimento (bottons, adesivos, bonés, camisetas e demais lembranças) não possuem finalidade eleitoral e seguem as normas da Justiça Eleitoral brasileira (TSE).
+    Nenhum conteúdo deste sistema constitui pedido de voto.
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/app.js"></script>
+<script src="js/gamificacao-ui.js"></script>
+</body>
+</html>
+<a href="https://www.flaticon.com/br/icones-gratis/o-comunismo" title="o comunismo ícones">O comunismo ícones criados por smashingstocks - Flaticon</a>
