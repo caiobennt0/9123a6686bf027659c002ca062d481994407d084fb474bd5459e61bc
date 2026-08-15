@@ -1,35 +1,32 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tropa do Elias</title>
+<title>Elias Jabbour 6577 | Movimento</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="shortcut icon" href="/favicon.svg">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/elias-v2.css">
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <div class="nav-logo-img"><span class="mao-ico mao-sm"></span></div>
-    <div class="nav-logo-txt">
-      Elias Jabbour 
-      <div class="nav-logo-sub"></div>
-        Candidato a Deputado Federal
-    </div>
-  </div>
+<nav class="site-nav">
+  <button class="brand-button" type="button" onclick="ir('home')" aria-label="Ir para o início">
+    <img src="assets/elias/logo-branca.png" alt="Elias Jabbour 6577" class="brand-logo">
+  </button>
   <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-links" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="nav-links">
-    <button class="nav-btn ativo" onclick="ir('home')">🏠 Início</button>
-    <button class="nav-btn" onclick="ir('painel')">⭐ Painel</button>
-    <button class="nav-btn" onclick="ir('apoiar')">💗 Apoiar</button>
-    <button class="nav-btn nav-cta" id="btn-nav-auth" onclick="ir('cadastro')"><span class="mao-ico mao-sm"></span> Vem com a Tropa!!</button>
+    <button class="nav-btn ativo" onclick="ir('home')">Início</button>
+    <button class="nav-btn" onclick="ir('painel')">Meu painel</button>
+    <button class="nav-btn" onclick="ir('apoiar')">Contribuir</button>
+    <button class="nav-btn nav-cta" id="btn-nav-auth" onclick="ir('cadastro')">Participar <span aria-hidden="true">↗</span></button>
   </div>
 </nav>
 
@@ -38,98 +35,124 @@
 
 <!-- ═══════════ HOME ═══════════ -->
 <div id="pg-home" class="pg ativa">
-  <div class="home-saudacao">
-    <div style="max-width:680px;margin:0 auto;position:relative;z-index:1">
-      <div class="saud-tag"><span class="mao-ico mao-sm"></span> Tropa do Elias</div>
-      <div class="saud-msg" id="saud-msg">Bom dia! 🌅</div>
-      <div class="saud-slogan"><span class="mao-ico mao-sm"></span> Seja voluntário e ajude a construir o futuro do Brasil</div>
-    </div>
-  </div>
-
-  <div class="home-section">
-
-    <!-- Vídeo -->
-    <div class="section-eyebrow">📹 Mensagem do Elias</div>
-    <div class="section-title">Ele tem algo especial pra te dizer</div>
-    <div class="section-sub">Ouça direto do Elias por que esse movimento importa — e por que você faz parte dele. 💗</div>
-
-    <div class="video-card" id="video-card">
-      <div class="video-thumb" onclick="simularVideo()">
-        <div class="play-wrap">
-          <div class="play-circle"></div>
-          <div class="video-title">Elias Jabbour</div>
-          <div class="video-sub">Movimento "Tropa do Elias" · Candidato a Deputado Federal pelo RJ</div>
+  <header class="campaign-hero">
+    <div class="hero-noise"></div>
+    <div class="hero-container">
+      <div class="hero-copy reveal">
+        <div class="hero-kicker"><span class="kicker-dot"></span><span id="saud-msg">Bem-vinda(o)</span> à plataforma de mobilização</div>
+        <img src="assets/elias/logo-horizontal.png" alt="Elias Jabbour 6577 — Deputado Federal" class="hero-logo">
+        <h1>Organização, participação e <span>movimento.</span></h1>
+        <p class="hero-lead">Um espaço para acompanhar a agenda, participar das ações, mobilizar apoiadores e fortalecer a organização da campanha.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="ir('cadastro')">Quero participar <span>↗</span></button>
+          <button class="btn-ghost" onclick="document.getElementById('movimento').scrollIntoView({behavior:'smooth'})">Conhecer a plataforma <span>↓</span></button>
         </div>
-        <div class="video-badge">▶ Mensagem do Elias · 2min</div>
+        <div class="hero-meta">
+          <div><strong>6577</strong><span>Deputado Federal</span></div>
+          <div><strong>RJ</strong><span>Mobilização em rede</span></div>
+          <div><strong>24/7</strong><span>Plataforma online</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-number" aria-hidden="true">6577</div>
+        <div class="portrait-orbit orbit-one"></div>
+        <div class="portrait-orbit orbit-two"></div>
+        <div class="portrait-cutout">
+          <img src="assets/elias/elias-oficial.png" alt="Elias Jabbour">
+        </div>
+        <div class="hero-stamp"><span>DEPUTADO</span><strong>FEDERAL</strong><small>6577</small></div>
+        <div class="hero-chip chip-a">● Ações em rede</div>
+        <div class="hero-chip chip-b">↗ Participe</div>
       </div>
     </div>
+    <div class="hero-ticker" aria-hidden="true"><div>ELIAS JABBOUR • 6577 • DEPUTADO FEDERAL • MOBILIZAÇÃO • ELIAS JABBOUR • 6577 • DEPUTADO FEDERAL • MOBILIZAÇÃO •</div></div>
+  </header>
 
-    <!-- Compartilhar -->
-    <div class="share-card">
-      <div class="share-title">📤 Compartilhe com quem você ama! <span class="mao-ico mao-sm"></span></div>
+  <main id="movimento" class="landing-main">
+    <section class="intro-grid section-shell">
+      <div class="intro-copy reveal">
+        <div class="eyebrow">01 / Mensagem</div>
+        <h2>Direto com <span>Elias</span></h2>
+        <p>Assista à mensagem em destaque e conheça o ponto de partida deste espaço de mobilização.</p>
+        <div class="share-inline">
+          <span>Compartilhar</span>
+          <button onclick="shareWhatsApp()" aria-label="Compartilhar no WhatsApp">WhatsApp ↗</button>
+          <button onclick="shareTelegram()" aria-label="Compartilhar no Telegram">Telegram ↗</button>
+        </div>
+      </div>
+      <div class="video-card reveal" id="video-card">
+        <div class="video-thumb" onclick="simularVideo()">
+          <div class="video-corner">MENSAGEM EM VÍDEO</div>
+          <div class="play-wrap">
+            <div class="play-circle"></div>
+            <div class="video-title">Elias Jabbour</div>
+            <div class="video-sub">Deputado Federal · 6577</div>
+          </div>
+          <div class="video-badge">Assistir agora</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-preview section-shell">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">02 / Movimento em tempo real</div>
+          <h2>Quem participa, <span>movimenta.</span></h2>
+        </div>
+        <p>Acompanhe o ranking de mobilização e os próximos compromissos em uma visão rápida.</p>
+      </div>
+      <div class="live-grid">
+        <article class="ranking-card reveal" id="ranking-card">
+          <div class="card-kicker"><span class="live-dot"></span> Ranking do movimento</div>
+          <div class="ranking-tabs" id="ranking-tabs">
+            <button class="ranking-tab ativo" type="button" onclick="trocarRankingPeriodo('dia', this)">Hoje</button>
+            <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('semana', this)">Semana</button>
+            <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('mes', this)">Mês</button>
+            <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('geral', this)">Geral</button>
+          </div>
+          <div class="ranking-lista" id="ranking-lista"><div class="ranking-loading">Carregando ranking...</div></div>
+        </article>
+
+        <article class="agenda-card reveal">
+          <div class="agenda-hdr"><div><small>PRÓXIMOS ENCONTROS</small><span>Agenda</span></div><b>↗</b></div>
+          <div class="agenda-lista" id="agenda-lista"><div class="agenda-loading">Carregando agenda...</div></div>
+          <button class="btn-agenda" onclick="abrirModal('modal-agenda')">Sugerir uma agenda <span>↗</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="participation section-shell">
+      <div class="section-head light reveal">
+        <div><div class="eyebrow">03 / Faça parte</div><h2>Há mais de um jeito de <span>participar.</span></h2></div>
+        <p>Entre na rede, acompanhe as ações e use seu painel para registrar sua participação.</p>
+      </div>
+      <div class="participation-grid">
+        <article class="participation-card reveal"><span class="pc-index">01</span><div class="pc-icon">↗</div><h3>Entre na rede</h3><p>Faça seu cadastro e tenha acesso ao seu espaço pessoal de mobilização.</p><button onclick="ir('cadastro')">Começar agora</button></article>
+        <article class="participation-card reveal"><span class="pc-index">02</span><div class="pc-icon">◎</div><h3>Acompanhe</h3><p>Veja agenda, ranking, atividades e o avanço da sua jornada em um só lugar.</p><button onclick="ir('painel')">Abrir painel</button></article>
+        <article class="participation-card reveal"><span class="pc-index">03</span><div class="pc-icon">＋</div><h3>Amplie a rede</h3><p>Cadastre apoiadores, compartilhe seu convite e acompanhe suas mobilizações.</p><button onclick="ir('painel')">Ver recursos</button></article>
+      </div>
+    </section>
+
+    <section class="share-band reveal">
+      <div><small>ESPALHE A IDEIA</small><h2>Leve o movimento com você.</h2></div>
       <div class="share-btns">
-        <button class="share-btn sh-wpp" onclick="shareWhatsApp()">💬 WhatsApp</button>
-        <button class="share-btn sh-ig" onclick="shareInstagram()">📸 Instagram</button>
-        <button class="share-btn sh-tg" onclick="shareTelegram()">✈️ Telegram</button>
+        <button class="share-btn sh-wpp" onclick="shareWhatsApp()">WhatsApp ↗</button>
+        <button class="share-btn sh-ig" onclick="shareInstagram()">Instagram ↗</button>
+        <button class="share-btn sh-tg" onclick="shareTelegram()">Telegram ↗</button>
       </div>
-    </div>
+    </section>
 
-    <div class="section-eyebrow">🏆 Ranking do Movimento</div>
-    <div class="section-title">Quem mais pontuou</div>
-    <div class="section-sub">Acompanhe a pontuação por dia, semana, mês ou no geral.</div>
-
-    <div class="ranking-card" id="ranking-card">
-      <div class="ranking-tabs" id="ranking-tabs">
-        <button class="ranking-tab ativo" type="button" onclick="trocarRankingPeriodo('dia', this)">Dia</button>
-        <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('semana', this)">Semana</button>
-        <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('mes', this)">Mês</button>
-        <button class="ranking-tab" type="button" onclick="trocarRankingPeriodo('geral', this)">Geral</button>
+    <section class="support-feature section-shell reveal">
+      <div class="support-number">6577</div>
+      <div class="support-copy">
+        <div class="eyebrow">04 / Contribuição</div>
+        <h2>Quer contribuir com a mobilização?</h2>
+        <p>A área de contribuição direciona para a plataforma externa responsável pelo processamento, conforme as regras aplicáveis.</p>
+        <button class="btn-primary dark" onclick="ir('apoiar')">Conhecer as formas de contribuir <span>↗</span></button>
       </div>
-      <div class="ranking-lista" id="ranking-lista">
-        <div class="ranking-loading">Carregando ranking...</div>
-      </div>
-    </div>
-
-    <!-- Agenda -->
-    <div class="section-eyebrow">🗓️ Agenda do Elias</div>
-    <div class="section-title">Próxima semana</div>
-    <div class="section-sub">Venha de perto! Cada encontro fortalece o movimento. 💗</div>
-
-    <div class="agenda-card">
-      <div class="agenda-hdr">🗓️ <span>Agenda — próxima semana</span></div>
-      <div class="agenda-lista" id="agenda-lista">
-        <div style="padding:1rem;text-align:center;color:var(--txt3);font-size:13px">Carregando agenda...</div>
-      </div>
-    </div>
-    <button class="btn-agenda" onclick="abrirModal('modal-agenda')">📅 Criar agenda com o Elias</button>
-
-    <!-- Voluntário -->
-    <div class="section-eyebrow"><span class="mao-ico mao-sm"></span> Vem com a Tropa!!</div>
-    <div class="section-title">Seja voluntária(o) do movimento</div>
-    <div class="section-sub">Qualquer pessoa pode fazer parte. O movimento é de todo mundo. 💗</div>
-    <div class="vol-card">
-      <div class="vol-titulo">🌟 Como funciona ser voluntária(o)?</div>
-      <div class="vol-desc">Simples e rápido.</div>
-      <div class="vol-passos">
-        <div class="vol-passo"><div class="vp-num">1</div>📝 Preencha o formulário em 2 minutinhos</div>
-        <div class="vol-passo"><div class="vp-num">2</div>💬 Entre no grupo WhatsApp do seu polo</div>
-        <div class="vol-passo"><div class="vp-num">3</div>🚀 Participe das ações e acumule emblemas</div>
-      </div>
-      <button class="btn-vol" onclick="ir('cadastro')"><span class="mao-ico mao-sm"></span> Vem com a Tropa!! Quero ser voluntária(o)</button>
-    </div>
-
-    <!-- Chamado para contribuição -->
-    <div class="apoio-cta-card">
-      <div class="apoio-cta-icon">💗</div>
-      <div class="apoio-cta-titulo">Contribua com o movimento popular</div>
-      <div class="apoio-cta-texto">
-        Movimentos populares não têm o dinheiro das grandes empresas nem o tempo de TV das campanhas tradicionais.
-        A candidatura do Elias Jabbour respira do que cada apoiadora e apoiador coloca — com transparência total e dentro das regras da Justiça Eleitoral.
-        Cada contribuição, do tamanho que for, ajuda a superar essas adversidades e fortalece quem está construindo isso de baixo para cima. 🫶
-      </div>
-      <button class="btn-apoio-cta" onclick="ir('apoiar')">💗 Quero contribuir</button>
-    </div>
-  </div>
+      <div class="support-badge"><span>ELIAS</span><strong>6577</strong><small>DEPUTADO FEDERAL</small></div>
+    </section>
+  </main>
 </div>
 
 <!-- ═══════════ CADASTRO ═══════════ -->
@@ -137,8 +160,8 @@
   <div class="form-wrap">
     <div class="form-topo">
       <div class="ft-emoji"><span class="mao-ico mao-lg"></span></div>
-      <h2>Vem com a Tropa!! Seja voluntária(o)</h2>
-      <p>Preencha em 2 minutos e entre no movimento do Elias Jabbour 💗</p>
+      <h2>Faça parte do movimento</h2>
+      <p>Crie seu acesso à plataforma de mobilização de Elias Jabbour.</p>
     </div>
     <div class="form-steps">
       <div class="fstep ok" id="fs1"></div>
@@ -197,17 +220,17 @@
       </div>
       <div class="form-row"><label>🔐 Senha *</label><input type="password" id="f-senha" placeholder="Mínimo 8 caracteres"></div>
       <div class="form-hint" id="convite-origem-msg" style="display:none"></div>
-      <div class="form-nav"><div></div><button class="btn-next" onclick="concluir()"><span class="mao-ico mao-sm"></span> Entrar no movimento!</button></div>
+      <div class="form-nav"><div></div><button class="btn-next" onclick="concluir()">Criar meu acesso ↗</button></div>
     </div>
 
     <!-- Sucesso -->
     <div class="form-bloco" id="bloco-ok">
       <div class="suc-box">
         <div class="suc-emoji">🎉</div>
-        <h2>Bem-vinda(o) ao movimento!</h2>
+        <h2>Cadastro recebido!</h2>
         <p>Seu cadastro foi recebido. Agora confirme seu e-mail pelo link enviado para liberar sua conta e acessar o painel.</p>
         <div class="card-preview">
-          <div class="cp-tag">Tropa do Elias · Cadastro recebido</div>
+          <div class="cp-tag">Elias Jabbour 6577 · Cadastro recebido</div>
           <div class="cp-nome" id="cp-nome">Maria das Graças</div>
           <div class="cp-reg" id="cp-reg">📍 Paulista — Janga</div>
           <div class="cp-footer"><div class="cp-nivel">📧 Confirmação pendente</div><div style="text-align:right"><div class="cp-num">0</div><div class="cp-lbl">pontos</div></div></div>
@@ -257,12 +280,12 @@
   <div class="apoiar-wrap">
 
     <div class="apoiar-hero">
-      <div class="apoiar-hero-icon"><span class="mao-ico mao-lg"></span></div>
-      <div class="apoiar-hero-tit">Apoia em dinheiro</div>
-      <div class="apoiar-hero-sub">Sem grande mídia, sem dinheiro de empresa — a pré-campanha respira do que cada uma e cada um de nós coloca.</div>
+      <div class="apoiar-hero-icon">6577</div>
+      <div class="apoiar-hero-tit">Contribua com a mobilização</div>
+      <div class="apoiar-hero-sub">Escolha um valor e siga para a plataforma externa responsável pelo processamento da contribuição.</div>
     </div>
 
-    <div class="apoiar-secao-label">💰 Escolhe um valor</div>
+    <div class="apoiar-secao-label">Escolha um valor</div>
     <div class="valores-grid">
       <button class="valor-btn" onclick="abrirApoio(5)">R$ 5</button>
       <button class="valor-btn" onclick="abrirApoio(10)">R$ 10</button>
@@ -285,7 +308,7 @@
     </div>
 
     <button class="btn-quero-apoiar" onclick="window.open('https://queroapoiar.com.br/elias-jabbour', '_blank')">
-      <span class="mao-ico mao-sm"></span> Quero apoiar
+      Continuar para contribuição ↗
     </button>
 
     <button class="btn-compartilhar-apoio" onclick="compartilharMovimento()">
@@ -314,10 +337,10 @@
 <div class="modal-ov" id="modal-agenda">
   <div class="modal">
     <div class="modal-handle"></div>
-    <h3>📅 Criar agenda com o Elias</h3>
+    <h3>Sugerir agenda com Elias</h3>
     <div class="modal-sub">Preencha e a equipe vai entrar em contato para confirmar!</div>
     <div class="form-row"><label>👤 Seu nome *</label><input id="ag-nome" type="text" placeholder="Como você se chama?"></div>
-    <div class="form-row"><label>📱 WhatsApp *</label><input id="ag-tel" type="tel" placeholder="(21) 9 0000-0000"></div>
+    <div class="form-row"><label>📱 WhatsApp *</label><input id="ag-tel" type="tel" placeholder="(81) 9 0000-0000"></div>
     <div class="form-row"><label>🏙️ Cidade *</label><select id="ag-cidade"><option value="">Selecione sua cidade</option></select></div>
     <div class="form-row"><label>📍 Local do encontro *</label><input id="ag-local" type="text" placeholder="Endereço ou nome do espaço"></div>
     <div class="form-row"><label>🗓️ Data preferida *</label><input id="ag-data" type="date"></div>
@@ -338,7 +361,7 @@
     <h3>🗳️ Adicionar apoiador conquistado</h3>
     <div class="modal-sub">Registre alguém cujo apoio você já garantiu para o movimento! 💗</div>
     <div class="form-row"><label>👤 Nome completo *</label><input type="text" id="el-nome" placeholder="Nome da pessoa"></div>
-    <div class="form-row"><label>📱 Telefone *</label><input type="tel" id="el-tel" placeholder="(21) 9 0000-0000"></div>
+    <div class="form-row"><label>📱 Telefone *</label><input type="tel" id="el-tel" placeholder="(81) 9 0000-0000"></div>
     <div class="form-row"><label>📧 E-mail *</label><input type="email" id="el-email" placeholder="apoio@email.com"></div>
     <div class="form-row"><label>🏙️ Cidade *</label>
       <select id="el-cidade" onchange="mostrarBairroModal('el-cidade','el-bairro-wrap')">
@@ -378,7 +401,7 @@
         <option value="outra">Outra cidade de PE</option>
       </select>
     </div>
-    <div class="bairro-wrap" id="el-bairro-wrap"><div class="form-row"><label>🏘️ Bairro *</label><select id="el-bairro"><option value="">Selecione o bairro</option></select></div></div>
+    <div class="bairro-wrap vis" id="el-bairro-wrap"><div class="form-row"><label>Bairro *</label><input id="el-bairro" type="text" placeholder="Digite o bairro"></div></div>
     <div class="modal-footer">
       <button class="btn-cancel" onclick="fecharModal('modal-eleitor')">Cancelar</button>
       <button class="btn-ok" onclick="salvarEleitor()">🗳️ Adicionar apoiador</button>
@@ -398,7 +421,7 @@
     <div class="form-row" id="auth-password-row">
       <label>🔐 Senha *</label>
       <input type="password" id="auth-password" placeholder="Sua senha">
-      <div class="form-hint"><button type="button" id="auth-forgot-btn" onclick="solicitarResetSenha()" style="background:none;border:none;color: var(--cor-principal);padding:0;cursor:pointer;font-weight:700">Esqueceu a senha?</button></div>
+      <div class="form-hint"><button type="button" id="auth-forgot-btn" onclick="solicitarResetSenha()" style="background:none;border:none;color:#9B0000;padding:0;cursor:pointer;font-weight:700">Esqueceu a senha?</button></div>
     </div>
     <div class="modal-footer">
       <button class="btn-cancel" onclick="fecharModalAuth()">Cancelar</button>
@@ -425,7 +448,7 @@
 
 <footer class="footer-legal">
   <div class="footer-legal-content">
-    ⚖️ Este é um sistema de organização do <strong>movimento "Tropa do Elias"</strong>, mantido por voluntárias e voluntários.
+    ⚖️ Este é um sistema de organização do <strong>movimento Elias Jabbour 6577</strong>, mantido por voluntárias e voluntários.
     Os itens de reconhecimento (bottons, adesivos, bonés, camisetas e demais lembranças) não possuem finalidade eleitoral e seguem as normas da Justiça Eleitoral brasileira (TSE).
     Nenhum conteúdo deste sistema constitui pedido de voto.
   </div>
@@ -437,4 +460,3 @@
 <script src="js/gamificacao-ui.js"></script>
 </body>
 </html>
-<a href="https://www.flaticon.com/br/icones-gratis/o-comunismo" title="o comunismo ícones">O comunismo ícones criados por smashingstocks - Flaticon</a>

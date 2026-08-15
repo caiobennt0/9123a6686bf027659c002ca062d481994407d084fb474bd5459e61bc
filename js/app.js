@@ -1,11 +1,104 @@
-﻿// ── BAIRROS ────────────────────────────────────────
+// ── BAIRROS ────────────────────────────────────────
 const BAIRROS = {
   recife: ["Aflitos", "Afogados", "Água Fria", "Alto do Mandu", "Alto José Bonifácio", "Alto José do Pinho", "Alto Santa Terezinha", "Apipucos", "Areias", "Arruda", "Bairro do Recife", "Barro", "Beberibe", "Boa Viagem", "Boa Vista", "Bomba do Hemetério", "Bongi", "Brasília Teimosa", "Brejo da Guabiraba", "Brejo de Beberibe", "Cabanga", "Caçote", "Cajueiro", "Campina do Barreto", "Campo Grande", "Casa Amarela", "Casa Forte", "Caxangá", "Cidade Universitária", "Coelhos", "Cohab", "Coqueiral", "Cordeiro", "Córrego do Jenipapo", "Curado", "Derby", "Dois Irmãos", "Dois Unidos", "Encruzilhada", "Engenho do Meio", "Espinheiro", "Estância", "Fundão", "Graças", "Guabiraba", "Hipódromo", "Ibura", "Ilha do Leite", "Ilha do Retiro", "Ilha Joana Bezerra", "Imbiribeira", "Ipsep", "Iputinga", "Jaqueira", "Jardim São Paulo", "Jiquiá", "Jordão", "Linha do Tiro", "Macaxeira", "Madalena", "Mangabeira", "Mangueira", "Monteiro", "Morro da Conceição", "Mustardinha", "Nova Descoberta", "Paissandu", "Parnamirim", "Passarinho", "Pau-Ferro", "Peixinhos", "Pina", "Poço da Panela", "Ponto de Parada", "Porto da Madeira", "Prado", "Rosarinho", "San Martin", "Sancho", "Santana", "Santo Amaro", "Santo Antônio", "São José", "Sítio dos Pintos", "Soledade", "Tamarineira", "Tejipió", "Torre", "Torreão", "Torrões", "Totó", "Várzea", "Vasco da Gama", "Zumbi"],
   olinda: ["Águas Compridas", "Aguazinha", "Alto da Bondade", "Alto da Conquista", "Alto da Nação", "Alto do Sol Nascente", "Amaro Branco", "Amparo", "Bairro Novo", "Bonsucesso", "Bultrins", "Caixa d\u0027Água", "Carmo", "Casa Caiada", "Cidade Tabajara", "Fragoso", "Guadalupe", "Jardim Atlântico", "Jardim Brasil", "Ouro Preto", "Passarinho", "Peixinhos", "Rio Doce", "Salgadinho", "Santa Teresa", "São Benedito", "Sapucaia", "Sítio Novo", "Varadouro", "Vila Popular"],
   paulista: ["Arthur Lundgren I", "Arthur Lundgren II", "Bairro do Nobre", "Centro", "Cidade Tabajara", "Engenho Maranguape", "Enseadinha", "Fragoso", "Jaguarana", "Janga", "Jardim Maranguape", "Jardim Paulista", "Jardim Velho", "Maranguape I", "Maranguape II", "Maria Farinha", "Mirueira", "Nossa Senhora da Conceição", "Nossa Senhora do Ó", "Paratibe", "Parque do Janga", "Pau Amarelo", "Poty", "Vila Torres Galvão"]
 };
 
-const MUNICIPIOS_PE = ["Abreu e Lima", "Afogados da Ingazeira", "Afrânio", "Agrestina", "Água Preta", "Águas Belas", "Alagoinha", "Aliança", "Altinho", "Amaraji", "Angelim", "Araçoiaba", "Araripina", "Arcoverde", "Barra de Guabiraba", "Barreiros", "Belém de Maria", "Belém de São Francisco", "Belo Jardim", "Betânia", "Bezerros", "Bodocó", "Bom Conselho", "Bom Jardim", "Bonito", "Brejão", "Brejinho", "Brejo da Madre de Deus", "Buenos Aires", "Buíque", "Cabo de Santo Agostinho", "Cabrobó", "Cachoeirinha", "Caetés", "Calçado", "Calumbi", "Camaragibe", "Camocim de São Félix", "Camutanga", "Canhotinho", "Capoeiras", "Carnaíba", "Carnaubeira da Penha", "Carpina", "Caruaru", "Casinhas", "Catende", "Cedro", "Chã de Alegria", "Chã Grande", "Condado", "Correntes", "Cortês", "Cumaru", "Cupira", "Custódia", "Dormentes", "Escada", "Exu", "Feira Nova", "Fernando de Noronha", "Ferreiros", "Flores", "Floresta", "Frei Miguelinho", "Gameleira", "Garanhuns", "Glória do Goitá", "Goiana", "Granito", "Gravatá", "Iati", "Ibimirim", "Ibirajuba", "Igarassu", "Iguaraci", "Ilha de Itamaracá", "Inajá", "Ingazeira", "Ipojuca", "Ipubi", "Itacuruba", "Itaíba", "Itambé", "Itapetim", "Itapissuma", "Itaquitinga", "Jaboatão dos Guararapes", "Jaqueira", "Jataúba", "Jatobá", "João Alfredo", "Joaquim Nabuco", "Jucati", "Jupi", "Jurema", "Lagoa do Carro", "Lagoa do Itaenga", "Lagoa do Ouro", "Lagoa dos Gatos", "Lagoa Grande", "Lajedo", "Limoeiro", "Macaparana", "Machados", "Manari", "Maraial", "Mirandiba", "Moreilândia", "Moreno", "Nazaré da Mata", "Olinda", "Orobó", "Orocó", "Ouricuri", "Palmares", "Palmeirina", "Panelas", "Paranatama", "Parnamirim", "Passira", "Paudalho", "Paulista", "Pedra", "Pesqueira", "Petrolândia", "Petrolina", "Poção", "Pombos", "Primavera", "Quipapá", "Quixaba", "Recife", "Riacho das Almas", "Ribeirão", "Rio Formoso", "Sairé", "Salgadinho", "Salgueiro", "Saloá", "Sanharó", "Santa Cruz", "Santa Cruz da Baixa Verde", "Santa Cruz do Capibaribe", "Santa Filomena", "Santa Maria da Boa Vista", "Santa Maria do Cambucá", "Santa Terezinha", "São Benedito do Sul", "São Bento do Una", "São Caitano", "São João", "São Joaquim do Monte", "São José da Coroa Grande", "São José do Belmonte", "São José do Egito", "São Lourenço da Mata", "São Vicente Ferrer", "Serra Talhada", "Serrita", "Sertânia", "Sirinhaém", "Solidão", "Surubim", "Tabira", "Tacaimbó", "Tacaratu", "Tamandaré", "Taquaritinga do Norte", "Terezinha", "Terra Nova", "Timbaúba", "Toritama", "Tracunhaém", "Trindade", "Triunfo", "Tupanatinga", "Tuparetama", "Venturosa", "Verdejante", "Vertente do Lério", "Vertentes", "Vicência", "Vitória de Santo Antão", "Xexéu"];
+const MUNICIPIOS_PE = [
+  'Angra dos Reis',
+  'Aperibe',
+  'Araruama',
+  'Areal',
+  'Armacao dos Buzios',
+  'Arraial do Cabo',
+  'Barra do Pirai',
+  'Barra Mansa',
+  'Belford Roxo',
+  'Bom Jardim',
+  'Bom Jesus do Itabapoana',
+  'Cabo Frio',
+  'Cachoeiras de Macacu',
+  'Cambuci',
+  'Campos dos Goytacazes',
+  'Cantagalo',
+  'Carapebus',
+  'Cardoso Moreira',
+  'Carmo',
+  'Casimiro de Abreu',
+  'Comendador Levy Gasparian',
+  'Conceicao de Macabu',
+  'Cordeiro',
+  'Duas Barras',
+  'Duque de Caxias',
+  'Engenheiro Paulo de Frontin',
+  'Guapimirim',
+  'Iguaba Grande',
+  'Itaborai',
+  'Itaguai',
+  'Italva',
+  'Itaocara',
+  'Itaperuna',
+  'Itatiaia',
+  'Japeri',
+  'Laje do Muriae',
+  'Macae',
+  'Macuco',
+  'Mage',
+  'Mangaratiba',
+  'Marica',
+  'Mendes',
+  'Mesquita',
+  'Miguel Pereira',
+  'Miracema',
+  'Natividade',
+  'Nilopolis',
+  'Niteroi',
+  'Nova Friburgo',
+  'Nova Iguacu',
+  'Paracambi',
+  'Paraiba do Sul',
+  'Paraty',
+  'Paty do Alferes',
+  'Petropolis',
+  'Pinheiral',
+  'Pirai',
+  'Porciuncula',
+  'Porto Real',
+  'Quatis',
+  'Queimados',
+  'Quissama',
+  'Resende',
+  'Rio Bonito',
+  'Rio Claro',
+  'Rio das Flores',
+  'Rio das Ostras',
+  'Rio de Janeiro',
+  'Santa Maria Madalena',
+  'Santo Antonio de Padua',
+  'Sao Francisco de Itabapoana',
+  'Sao Fidelis',
+  'Sao Goncalo',
+  'Sao Joao da Barra',
+  'Sao Joao de Meriti',
+  'Sao Jose de Uba',
+  'Sao Jose do Vale do Rio Preto',
+  'Sao Pedro da Aldeia',
+  'Sao Sebastiao do Alto',
+  'Sapucaia',
+  'Saquarema',
+  'Seropedica',
+  'Silva Jardim',
+  'Sumidouro',
+  'Tangua',
+  'Teresopolis',
+  'Trajano de Moraes',
+  'Tres Rios',
+  'Valenca',
+  'Varre-Sai',
+  'Vassouras',
+  'Volta Redonda',
+];
 
 const SESSION_TOKEN_KEY = 'mm_session_token';
 let currentUser = null;
@@ -19,19 +112,19 @@ let rankingPeriodoAtual = 'dia';
 const BOTTON_MODELOS = {
   1: {
     classe: 'b1',
-    html: '<div class="bt-slogan">Vem com a Tropa! •</div><div class="bt-maos"><span class="mao-ico mao-sm"></span></div><div class="bt-nome">Elias Jabbour</div>',
+    html: '<div class="bt-slogan">ELIAS • 6577</div><div class="bt-nome">DEPUTADO FEDERAL</div>',
     rotulo: 'Botton Modelo 1',
     descricao: 'Modelo escolhido ao se inscrever',
   },
   2: {
     classe: 'b2',
-    html: '<div class="bt-Elias">Elias</div><div class="bt-Jabbour">Jabbour</div><span class="mao-ico mao-sm"></span>',
+    html: '<div class="bt-manu">ELIAS</div><div class="bt-mirella">6577</div>',
     rotulo: 'Botton Modelo 2',
     descricao: 'Modelo escolhido ao se inscrever',
   },
   3: {
     classe: 'b3',
-    html: '<div class="bt-to">Vem com</div><div class="bt-comano">Elias<br>Jabbour</div>',
+    html: '<div class="bt-to">ELIAS</div><div class="bt-comano">65<br>77</div>',
     rotulo: 'Botton Modelo 3',
     descricao: 'Modelo escolhido ao se inscrever',
   },
@@ -140,33 +233,14 @@ async function apiFetch(url, options = {}){
 
 // ── CIDADE → BAIRROS (formulário cadastro) ────────
 function onCidadeChange() {
-  const sel = document.getElementById('f-cidade');
   const wrap = document.getElementById('f-bairro-wrap');
-  const bSel = document.getElementById('f-bairro');
-  const bairroKey = cidadeBairroKey(sel.value);
-  if (bairroKey) {
-    wrap.classList.add('vis');
-    bSel.innerHTML = '<option value="">Selecione o bairro</option>' +
-      BAIRROS[bairroKey].map(b => `<option value="${b}">${b}</option>`).join('');
-  } else {
-    wrap.classList.remove('vis');
-  }
+  if (wrap) wrap.classList.add('vis');
 }
 
 // ── BAIRROS NOS MODAIS ─────────────────────────────
 function mostrarBairroModal(selId, wrapId) {
-  const sel = document.getElementById(selId);
   const wrap = document.getElementById(wrapId);
-  const bSel = wrap.querySelector('select');
-  if (!bSel) return;
-  const bairroKey = cidadeBairroKey(sel.value);
-  if (bairroKey) {
-    wrap.classList.add('vis');
-    bSel.innerHTML = '<option value="">Selecione o bairro</option>' +
-      BAIRROS[bairroKey].map(b => `<option value="${b}">${b}</option>`).join('');
-  } else {
-    wrap.classList.remove('vis');
-  }
+  if (wrap) wrap.classList.add('vis');
 }
 
 // ── SAUDAÇÃO ──────────────────────────────────────
@@ -521,7 +595,7 @@ async function loadVideoConfig(){
     card.classList.toggle('is-portrait', orientation === 'portrait');
     card.classList.toggle('is-square', orientation === 'square');
     if(video.type==='youtube'){
-      card.innerHTML=`<iframe class="video-frame" src="https://www.youtube.com/embed/${video.id}" title="Mensagem do Elias Jabbour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      card.innerHTML=`<iframe class="video-frame" src="https://www.youtube.com/embed/${video.id}" title="Mensagem de Elias Jabbour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     } else if(video.type==='local'){
       card.innerHTML=`<div class="video-frame"><video controls playsinline preload="metadata"><source src="${video.url}" type="video/mp4">Seu navegador não suporta vídeo.</video></div>`;
     }
@@ -530,12 +604,12 @@ async function loadVideoConfig(){
 
 // ── SHARE ─────────────────────────────────────────
 function shareWhatsApp(){
-  const msg=encodeURIComponent('💗 Vem com Elias Jabbour! Junte-se ao movimento popular do Rio de Janeiro: '+window.location.origin);
+  const msg=encodeURIComponent('Elias Jabbour 6577 — conheça a plataforma de mobilização: '+window.location.origin);
   window.open('https://wa.me/?text='+msg,'_blank');
 }
 function shareTelegram(){
   const url=encodeURIComponent(window.location.origin);
-  const text=encodeURIComponent('💗 Vem com Elias Jabbour! Movimento popular no RJ');
+  const text=encodeURIComponent('Elias Jabbour 6577 — plataforma de mobilização');
   window.open('https://t.me/share/url?url='+url+'&text='+text,'_blank');
 }
 function shareInstagram(){
@@ -546,7 +620,7 @@ function shareInstagram(){
   });
 }
 async function compartilharMovimento(){
-  const shareData={title:'Vem com Elias Jabbour 💗',text:'Doe para a candidatura de Elias Jabbour e ajude o movimento popular do Rio de Janeiro a chegar mais longe!',url:'https://queroapoiar.com.br/elias-jabbour'};
+  const shareData={title:'Elias Jabbour 6577',text:'Conheça a página de contribuição de Elias Jabbour.',url:'https://queroapoiar.com.br/elias-jabbour'};
   if(navigator.share){
     try{await navigator.share(shareData);return;}catch(e){}
   }
@@ -613,7 +687,7 @@ async function submitAgendaForm(){
     });
     if(res.ok){
       fecharModal('modal-agenda');
-      toast('✅ Solicitação enviada! A equipe do Elias vai te contatar em breve 💗');
+      toast('✅ Solicitação enviada! A equipe de Elias vai entrar em contato em breve.');
     } else {
       toast('⚠️ Erro ao enviar. Tente novamente.');
     }
@@ -793,7 +867,7 @@ function atualizarNavAuth(){
     btn.innerHTML = '🚪 Sair';
     btn.onclick = logout;
   } else {
-    btn.innerHTML = '<span class="mao-ico mao-sm"></span> Vem com a Tropa!!';
+    btn.innerHTML = 'Participar ↗';
     btn.onclick = () => ir('cadastro');
   }
   loadProximasAcoes('todas');
@@ -1081,3 +1155,13 @@ loadRankingHome('dia');
 hydrateCurrentUser().then(()=>{
   atualizarNavAuth();
 });
+
+
+// ── INTERAÇÕES VISUAIS V2 ─────────────────────────
+function setupRevealV2(){
+  const els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(el=>el.classList.add('is-visible'));return;}
+  const obs=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');obs.unobserve(entry.target);}})},{threshold:.12});
+  els.forEach(el=>obs.observe(el));
+}
+document.addEventListener('DOMContentLoaded', setupRevealV2);
